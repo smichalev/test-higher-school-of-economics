@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package students;
+
+service Service {
+    rpc GetStudentsByEmail (ByEmailsRequest) returns (StudentsResponse);
+    rpc GetStudentByEmail (ByEmailRequest) returns (Student);
+}
+
+message Student {
+    string email = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string middle_name = 4;
+}
+
+message StudentsResponse {
+    repeated Student students = 1;
+}
+
+message ByEmailsRequest {
+    repeated string emails = 1;
+}
+
+message ByEmailRequest {
+    string email = 1;
+}
